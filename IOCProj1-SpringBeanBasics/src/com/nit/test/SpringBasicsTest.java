@@ -7,6 +7,7 @@ import org.springframework.core.io.FileSystemResource;
 
 import com.nit.beans.WelcomeGreetings;
 
+@SuppressWarnings("deprecation")
 public class SpringBasicsTest {
 	
 	
