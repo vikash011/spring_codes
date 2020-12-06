@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+	<!--configuration java.util.Date class as Spring Bean Class (dependent class) -->
+	<bean id="dt" class="java.util.Date"></bean>
+
+	<!-- configuration WishMeassageGenerator class As Spring Bean class(target 
+		class) -->
+	<bean id="wmg" class="com.nit.bean.WishMessageGenerator">
+		<constructor-arg name="date" ref="dt"></constructor-arg> <!--enabling constructor injection -->
+	</bean>
+</beans>
