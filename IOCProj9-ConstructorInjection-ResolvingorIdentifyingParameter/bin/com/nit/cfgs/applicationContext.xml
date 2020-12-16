@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+<!-- cfgs student class as spring bean class with constructor injection(4-param) -->
+	<bean id="st" class="com.nit.comps.Student">
+		<constructor-arg value="100"></constructor-arg>
+		<constructor-arg value="raja"></constructor-arg>
+		<constructor-arg value="hyderabad"></constructor-arg>
+		<constructor-arg value="87.84f"></constructor-arg>
+	</bean>
+	
+	<!-- cfgs student class as spring bean class with constructor injection(3-param) -->
+	<bean id="st1" class="com.nit.comps.Student">
+		<constructor-arg value="101"></constructor-arg>
+		<constructor-arg value="ram"></constructor-arg>
+		<constructor-arg value="luckonw"></constructor-arg>
+	</bean>
+	
+	<!-- cfgs student class as spring bean class with constructor injection(2-param) -->
+	<bean id="st2" class="com.nit.comps.Student">
+		<constructor-arg value="103"></constructor-arg>
+		<constructor-arg value="Vivek"></constructor-arg>
+	</bean>
+	
+	
+	<!-- cfgs Marks class as Spring Bean class with Constructor Injection with Index  -->
+	<bean id="m1" class="com.nit.comps.Marks">
+	     <constructor-arg index="2" value="100"></constructor-arg>
+	     <constructor-arg index="1" value="70"></constructor-arg>
+	     <constructor-arg index="0" value="30"></constructor-arg>
+	</bean>
+	
+	<bean id="pr" class="com.nit.comps.Person">
+	   <constructor-arg type="int" value="9898989"></constructor-arg>
+	   <constructor-arg type="String" value="Ram"></constructor-arg>
+	   <constructor-arg type="long" value="353453534535353"></constructor-arg>
+	</bean>
+
+</beans>
