@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+	<bean class="com.nit.beans.Person">
+		<property name="name" value="raja"></property>
+		<property name="age" value="50"></property>
+	</bean>
+	<bean class="com.nit.beans.Person">
+		<property name="name" value="mohan"></property>
+		<property name="age" value="45"></property>
+	</bean>
+
+	<bean class="com.nit.beans.Person">
+		<property name="name" value="sohan"></property>
+		<property name="age" value="36"></property>
+	</bean>
+	
+	
+	<bean class="java.util.Date"></bean>
+	<bean class="java.util.Date">
+	   <property name="date" value="20"></property>
+	   <property name="year" value="90"></property>
+	   <property name="month" value="10"></property>
+	</bean>
+
+
+</beans>
