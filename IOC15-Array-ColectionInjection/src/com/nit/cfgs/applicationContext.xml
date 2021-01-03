@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+
+	<!-- cfgs Date class as Spring Bean class with values -->
+	<bean id="dobDate" class="java.util.Date">
+		<property name="year" value="92"></property>
+		<property name="month" value="4"></property>
+		<property name="date" value="8"></property>
+	</bean>
+
+
+	<!-- cfgs Date class as Spring Bean class with values -->
+	<bean id="dojDate" class="java.util.Date">
+		<property name="year" value="120"></property>
+		<property name="month" value="11"></property>
+		<property name="date" value="11"></property>
+	</bean>
+
+
+	<!-- cfgs Date class as Spring Bean class -->
+	<bean id="sysDate" class="java.util.Date"></bean>
+
+
+	<!-- cfgs College class as Spring Bean class -->
+	<bean id="clg" class="com.nit.beans.College">
+		<property name="favStudent">
+			<array>
+				<value>raja</value>
+				<value>rani</value>
+				<value>shyam</value>
+				<value>mohan</value>
+			</array>
+		</property>
+		<property name="impDate">
+			<!-- <list> <ref bean="dobDate" /> <ref bean="dojDate" /> <ref bean="sysDate" 
+				/> </ list> -->
+			<array>
+				<ref bean="dobDate" />
+				<ref bean="dojDate" />
+				<ref bean="sysDate" />
+			</array>
+		</property>
+	</bean>
+
+
+	<!-- cfgs Student class as Spring Bean class -->
+	<bean id="stud" class="com.nit.beans.Student">
+		<property name="marks">
+			<list>
+				<value>76</value>
+				<value>98</value>
+				<value>78</value>
+				<value>66</value>
+			</list>
+		</property>
+		<property name="impDates">
+			<list>
+				<ref bean="dobDate" />
+				<ref bean="dojDate" />
+				<ref bean="sysDate" />
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- cfgs FacultyInfo as Spring Bean class -->
+	<bean id="fac" class="com.nit.beans.FacultyInfo">
+		<property name="phoneNumbers">
+			<set value-type="java.lang.String">
+				<value>999999999</value>
+				<value>888888888</value>
+				<value>777777777</value>
+				<value>666666666</value>
+			</set>
+		</property>
+		<property name="impDates">
+			<set value-type="java.lang.String">
+				<ref bean="dobDate" />
+				<ref bean="dojDate" />
+				<ref bean="sysDate" />
+			</set>
+		</property>
+	</bean>
+
+
+	<!-- cfgs FruitSrore class as Spring Bean class -->
+	<bean id="fstore" class="com.nit.beans.FruitStore">
+		<property name="fruitInfo">
+			<map key-type="java.lang.String" value-type="java.lang.Float">
+				<entry>
+					<key>
+						<value>Apple</value>
+					</key>
+					<value>100.0f</value>
+				</entry>
+				<entry>
+					<key>
+						<value>Banana</value>
+					</key>
+					<value>40.0f</value>
+				</entry>
+				<entry>
+					<key>
+						<value>Grapes</value>
+					</key>
+					<value>90.f</value>
+				</entry>
+			</map>
+		</property>
+		<property name="impDates">
+			<map>
+				<entry>
+					<key>
+						<value>BirthDate</value>
+					</key>
+					<ref bean="dobDate" />
+				</entry>
+				<entry>
+					<key>
+						<value>joiningDate</value>
+					</key>
+					<ref bean="dojDate" />
+				</entry>
+				<entry>
+					<key>
+						<value>sysDate</value>
+					</key>
+					<ref bean="sysDate" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<!-- cgfs CourseInfo class as Spring bean class with Constructor Injection -->
+	<bean id="cinfo" class="com.nit.beans.CourseInfo">
+		<constructor-arg name="courseDetails">
+			<props>
+				<prop key="harikrishana">corejava</prop>
+				<prop key="murali">oracle</prop>
+				<prop key="natraj">AdvJava</prop>
+			</props>
+		</constructor-arg>
+	</bean>
+</beans>
