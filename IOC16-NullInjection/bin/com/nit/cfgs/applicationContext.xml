@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- cfgs Date class for rajaDOB as spring Bean class -->
+	<bean id="rajaDOB" class="java.util.Date">
+		<property name="year" value="90">
+		</property>
+		<property name="month" value="10">
+		</property>
+		<property name="date" value="10">
+		</property>
+	</bean>
+
+	<!-- cfgs Date class for rajaDOJ as Spring bean class -->
+	<bean id="rajaDOJ" class="java.util.Date">
+		<property name="year" value="110"></property>
+		<property name="month" value="5"></property>
+		<property name="date" value="5"></property>
+	</bean>
+
+	<!-- cfgs Date class for rajaDOM as as Spring Bean Class -->
+	<bean id="rajaDOM" class="java.util.Date">
+	</bean>
+
+
+	<!-- cfgs Date class for ramuDOB as Spring Bean class -->
+	<bean id="ramuDOB" class="java.util.Date">
+		<property name="year" value="95"></property>
+		<property name="month" value="6"></property>
+		<property name="date" value="6"></property>
+	</bean>
+
+	<!-- cfgs Date Class for ramuDOJ as Spring Bean class -->
+	<bean id="ramuDOJ" class="java.util.Date">
+		<property name="year" value="105"></property>
+		<property name="month" value="11"></property>
+		<property name="date" value="11"></property>
+	</bean>
+
+
+	<!-- cfgs Spring Bean class for Raja -->
+	<bean id="rajaInfo" class="com.nit.beans.PersonInfo">
+		<constructor-arg name="pName" value="Raja"></constructor-arg>
+		<constructor-arg name="pAddress" value="lucknow"></constructor-arg>
+		<constructor-arg name="dob" ref="rajaDOB"></constructor-arg>
+		<constructor-arg name="doj" ref="rajaDOJ"></constructor-arg>
+		<constructor-arg name="dom" ref="rajaDOM"></constructor-arg>
+	</bean>
+
+	<!-- cfgs Spring Bean class for Ramu -->
+	<bean id="ramuInfo" class="com.nit.beans.PersonInfo">
+		<constructor-arg name="pName" value="Ramu"></constructor-arg>
+		<constructor-arg name="pAddress" value="Banglore"></constructor-arg>
+		<constructor-arg name="dob" ref="ramuDOB"></constructor-arg>
+		<constructor-arg name="doj" ref="ramuDOJ"></constructor-arg>
+		<constructor-arg name="dom">
+			<null></null>
+		</constructor-arg>
+	</bean>
+
+	<!-- cfgs Spring Bean class  for shyam -->
+	<bean id="shyamInfo" class="com.nit.beans.PersonInfo">
+		<constructor-arg name="pName" value="Shyam"></constructor-arg>
+		<constructor-arg name="pAddress" value="Delhi"></constructor-arg>
+		<constructor-arg name="dob">
+			<null></null>
+		</constructor-arg>
+		<constructor-arg name="doj">
+			<null></null>
+		</constructor-arg>
+		<constructor-arg name="dom">
+			<null></null>
+		</constructor-arg>
+	</bean>
+
+
+<!-- ========================================================================================== -->
+<bean id="DOJ" class="com.nit.beans.Info">
+  <property name="doJ">
+     <null></null>     <!-- NullInjection -->
+  </property>
+</bean>
+
+
+
+
+
+
+
+</beans>
