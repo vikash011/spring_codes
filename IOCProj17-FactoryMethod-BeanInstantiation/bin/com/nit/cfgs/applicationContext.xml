@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+	<!-- using Static factory method and returning relevant class object -->
+	<bean id="cal" class="java.util.Calendar"
+		factory-method="getInstance">
+	</bean><!-- calls calendar.getIntanxe() -->
+
+
+
+	<!--using static factory method and returning its own class object -->
+	<bean id="clazz" class="java.lang.Class" factory-method="forName"><!-- calls 
+			Class.forName(Java.util.Date); -->
+		<constructor-arg value="java.util.Date"></constructor-arg><!-- supplied 
+			argument Java.util.Date -->
+	</bean>
+
+
+
+	<!-- using static factory method and returning different class object -->
+	<bean id="props" class="java.lang.System"
+		factory-method="getProperties"><!-- calls System.getProperties() -->
+	</bean>
+
+
+
+
+	<!-- using Instance factory method and returning its own class object -->
+	<bean id="s1" class="java.lang.String">
+		<constructor-arg value="Hello"></constructor-arg><!-- supplied 
+			Agrumemt value "Hello" -->
+	</bean>
+	<bean id="s2" factory-bean="s1" factory-method="concat"><!-- call s1.concat("123"); -->
+		<constructor-arg value="123"></constructor-arg>
+	</bean>
+
+
+
+
+	<!-- using instance factory method and returning different class obj -->
+	<bean id="sb" class="java.lang.StringBuffer">
+		<constructor-arg value="how are u"></constructor-arg>
+	</bean>
+	<bean id="sb1" factory-bean="sb" factory-method="substring"><!-- call sb.substring(0,3); -->
+		<constructor-arg value="0"></constructor-arg>
+		<constructor-arg value="3"></constructor-arg>
+	</bean>
+	
+
+
+	<!-- using insatance factory method and returning relevent class object -->
+	<bean id="al" class="java.util.ArrayList">
+	</bean>
+	<bean id="itr" factory-bean="al" factory-method="iterator"></bean><!-- calls al.iterator() -->
+
+</beans>
