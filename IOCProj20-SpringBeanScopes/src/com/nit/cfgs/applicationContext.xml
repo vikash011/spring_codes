@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- cfgs Java.util.Date as Spring bean class (Dependent class) -->
+	<bean id="dt" class="java.util.Date"></bean>
+
+	<!-- cfgs com.nit.beans.WishMessageGeneratror as Spring Bean class (Target 
+		class) -->
+	<!-- default scope="singleton" -->
+	
+	
+	<bean id="wmg1" class="com.nit.beans.WishMessageGeneratror">
+		<property name="date" ref="dt"></property>
+	</bean>
+	<bean id="wmg2" class="com.nit.beans.WishMessageGeneratror">
+		<property name="date" ref="dt"></property>
+	</bean>
+
+	<!-- cfgs com.nit.beans.Printer as Spring bean class with factory-method="gteInsatnce" -->
+	<bean id="p1" class="com.nit.beans.Printer" scope="singleton"
+		factory-method="getInstance"></bean>
+	<bean id="p2" class="com.nit.beans.Printer" scope="singleton"
+		factory-method="getInstance"></bean>
+
+	<!-- cfgs com.nit.beans.Printer as Spring bean class " -->
+	<bean id="p3" class="com.nit.beans.Printer" scope="singleton"></bean>
+	<bean id="p4" class="com.nit.beans.Printer" scope="singleton"></bean>
+	
+	
+	
+	<!-- scope="prototype" -->
+	
+	<bean id="wmg3" class="com.nit.beans.WishMessageGeneratror" scope="prototype"></bean>
+    <!-- cfgs com.nit.beans.Printer as Spring bean class " -->
+	<bean id="p5" class="com.nit.beans.Printer" scope="prototype"></bean>
+    <!-- cfgs com.nit.beans.Printer as Spring bean class with factory-method="gteInsatnce" -->
+	<bean id="p7" class="com.nit.beans.Printer" scope="prototype"
+		factory-method="getInstance"></bean>
+	
+
+</beans>
