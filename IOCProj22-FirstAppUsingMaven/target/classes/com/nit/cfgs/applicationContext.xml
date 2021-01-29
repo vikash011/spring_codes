@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+	<!-- cfgs Date Class as Spring Bean class -->
+	<bean id="dt" class="java.util.Date"></bean>
+
+	<!-- cfgs Person class as Spring Bean class -->
+	<bean id="person" class="com.nit.beans.Person">
+		<property name="pid" value="7879"></property>
+		<property name="pname" value="Raja"></property>
+		<property name="paddr" value="lucknow"></property>
+		<property name="page" ref="dt"></property>
+	</bean>
+
+</beans>
