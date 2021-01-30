@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+
+<!-- cfgs Robot class as Spring bean class -->
+	<bean id="robo" class="com.nit.beans.Robot">
+		<!-- <property name="roboId" value="98979"></property>
+		<property name="roboName" value="citti"></property> -->
+		<property name="roboCategory" value="humanoid"></property>
+		<property name="roboWeight" value="89.976f"></property>
+		
+	</bean>
+	
+<!-- enabling AnnotaionConfiguration -->
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
+              <!-- or -->
+<!-- 	<context:annotation-config></context:annotation-config> -->
+
+</beans>
