@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+	<!-- Cfgs DataSource as Spring bean class -->
+
+	<bean id="drds"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/practice">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+
+
+	<!-- cfgs DAO class as Spring Bean class -->
+	<bean id="custDAO" class="com.nit.dao.CustomerDAOImpl">
+		<constructor-arg name="ds" ref="drds"></constructor-arg>
+	</bean>
+
+
+
+	<!-- cfgs Service class as spring bean class -->
+	<bean id="custService"
+		class="com.nit.service.CustomerMgmtServiceImpl">
+		<constructor-arg name="dao" ref="custDAO"></constructor-arg>
+	</bean>
+
+
+	<!-- cfgs Controller class as Spring Bean class -->
+	<bean id="BankController"
+		class="com.nit.controller.BankController">
+		<constructor-arg name="service" ref="custService"></constructor-arg>
+	</bean>
+
+
+</beans>
