@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+
+	<!--cfgs Spring bean class As Target class -->
+	<bean id="bankservice" class="com.nit.service.BankService"></bean>
+
+
+	<!--cfgs Spring bean class As AspectjAOP aspect class -->
+	<bean id="pmAdvice"
+		class="com.nit.advice.PerformanceMonitoringAdvice"></bean>
+
+
+
+	<!-- cfgs spring bean class as AspectJAOP aspect class -->
+	<bean id="cacheAdvice" class="com.nit.advice.CachingAdvice"></bean>
+
+
+
+	<!--cfgs AOP(cachingAdvice) -->
+
+	<aop:config >
+		<aop:pointcut
+			expression="execution(double com.nit.service.BankService.*(..))"
+			id="ctc" />
+
+		<aop:aspect ref="cacheAdvice" order="1">
+			<aop:around method="caching" pointcut-ref="ctc" />
+		</aop:aspect>
+	</aop:config>
+
+
+	<!--cfgs AOP(Performance Advice) -->
+	<aop:config>
+		<!--creating Pointcut using OGNL expression -->
+		<aop:pointcut
+			expression="execution(double com.nit.service.BankService.*(..))"
+			id="ptc" />
+		<!--creating spring bean class AspectJ aspect class -->
+		<aop:aspect ref="pmAdvice" id="10">
+			<aop:around method="performance" pointcut-ref="ptc" />
+		</aop:aspect>
+	</aop:config>
+
+
+
+
+
+
+
+</beans>
