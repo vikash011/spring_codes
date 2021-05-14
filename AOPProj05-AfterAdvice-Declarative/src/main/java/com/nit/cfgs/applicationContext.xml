@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+
+
+
+
+	<!--cfgs target class as Spring bean -->
+	<bean id="OShopping" class="com.nit.service.OnlineShopping"></bean>
+
+	<!--cfgs advice class as Spring bean class -->
+	<bean id="couponGAdvice"
+		class="com.nit.advice.CouponGenerateAdvice"></bean>
+
+
+	<!--cfgs AspectJ AOP -->
+	<aop:config>
+		<aop:pointcut
+			expression="execution(* com.nit.service.OnlineShopping.*(..) )"
+			id="ptc" />
+
+		<aop:aspect ref="couponGAdvice">
+			<aop:after-returning method="coupon"
+			returning="billAmt"	pointcut-ref="ptc" />
+		</aop:aspect>
+	</aop:config>
+</beans>
