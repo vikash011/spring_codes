@@ -1,0 +1,8 @@
+
+
+=========== table details=================
+  CREATE TABLE "HR"."TX_MGMT_BANK" 
+   (	"ACCNO" NUMBER(20,0) NOT NULL ENABLE, 
+	"ACCHOLDER" VARCHAR2(20 BYTE), 
+	"BALANCE" FLOAT(20), 
+	 CONSTRAINT "TX_MGMT_BANK_PK" PRIMARY KEY ("ACCNO")
