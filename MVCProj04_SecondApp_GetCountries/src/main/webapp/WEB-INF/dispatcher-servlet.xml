@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+	<!--Config HandlerMapping -->
+	<bean id="shm"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="welcome.do">shc</prop>
+				<prop key="countries_list.do">acc</prop>
+				<prop key="about_us.do">about</prop>
+				<prop key="contact_us.do">contact</prop>
+			</props>
+		</property>
+	</bean>
+
+
+
+	<!--cfgs Controller class -->
+	<bean id="shc" class="com.nit.controller.ShowHomeControler"></bean>
+	<bean id="lsmi" class="com.nit.service.LocaleServiceMgmtImpl"></bean>
+	<bean id="about" class="com.nit.controller.AboutUSController"></bean>
+	<bean id="contact" class="com.nit.controller.ContactUsConroller"></bean>
+
+
+
+	<!--cfgs Service class -->
+	<bean id="acc" class="com.nit.controller.CountryController">
+		<constructor-arg name="service" ref="lsmi"></constructor-arg>
+	</bean>
+
+
+	<!--cfgs View Resolver -->
+	<bean id="irvr"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+</beans>
